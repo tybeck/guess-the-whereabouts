@@ -8,8 +8,11 @@ import Countdown from './Countdown';
 class App extends Component {
   render() {
     return <div className="App">
-      <h1>Guess the Whereabouts</h1>
+      <div className="title">
+        <h1>Guess the Whereabouts</h1>
+      </div>
       <Countdown/>
+      <img src="/images/photo1.jpeg" />
       <Background/>
     </div>
   }

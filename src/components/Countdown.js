@@ -29,7 +29,7 @@ class Countdown extends Component {
     }
 
     render() {
-        return <div className="Countdown">{this.state.days} <span>days</span></div>
+        return <div className="Countdown">in <span className="days">{this.state.days}</span> days</div>
     }
 }
 
