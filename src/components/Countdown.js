@@ -11,7 +11,9 @@ class Countdown extends Component {
 
         this.state = {
             days: Countdown.getDays()
-        }
+        };
+
+        this._run();
     }
 
     static getDays () {
@@ -27,7 +29,6 @@ class Countdown extends Component {
     }
 
     render() {
-        this._run();
         return <div className="Countdown">{this.state.days} <span>days</span></div>
     }
 }
