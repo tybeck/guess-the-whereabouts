@@ -5,9 +5,9 @@
   "description": "Describe guess-the-whereabouts here",
   "private": true,
   "scripts": {
-    "build": "nwb build-react-app",
+    "build": "nwb build-react-app --plugins=nwb-sass",
     "clean": "nwb clean-app",
-    "start": "nwb serve-react-app",
+    "start": "nwb serve-react-app --plugins=nwb-sass",
     "run": "node --experimental-modules index.mjs",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
@@ -17,11 +17,13 @@
     "bluebird": "^3.5.2",
     "express": "^4.16.3",
     "lodash": "^4.17.11",
+    "moment": "^2.22.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
   "devDependencies": {
-    "nwb": "^0.23.0"
+    "nwb": "^0.23.0",
+    "nwb-sass": "^0.9.0"
   },
   "author": "",
   "license": "MIT",
