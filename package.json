@@ -1,22 +1,27 @@
 {
   "name": "guess-the-whereabouts",
   "version": "1.0.0",
+  "main": "index.js",
   "description": "Describe guess-the-whereabouts here",
   "private": true,
   "scripts": {
     "build": "nwb build-react-app",
     "clean": "nwb clean-app",
     "start": "nwb serve-react-app",
+    "run": "node --experimental-modules index.mjs",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
+    "bluebird": "^3.5.2",
+    "express": "^4.16.3",
+    "lodash": "^4.17.11",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
   "devDependencies": {
-    "nwb": "0.23.x"
+    "nwb": "^0.23.0"
   },
   "author": "",
   "license": "MIT",
