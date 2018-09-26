@@ -12,8 +12,8 @@ class App extends Component {
       <div className="title">
         <h1>Guess the Whereabouts</h1>
       </div>
-      <People />
       <Countdown/>
+      <People />
       <img src="/images/photo1.jpeg" />
       <Background/>
     </div>
