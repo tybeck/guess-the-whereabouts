@@ -17,3 +17,36 @@ export const COUNTRY_LIST = [
     ,`Turkey`,`Turkmenistan`,`Turks &amp; Caicos`,`Uganda`,`Ukraine`,`United Arab Emirates`,`United Kingdom`,`United States`,`United States Minor Outlying Islands`,`Uruguay`
     ,`Uzbekistan`,`Venezuela`,`Vietnam`,`Virgin Islands (US)`,`Yemen`,`Zambia`,`Zimbabwe`
 ];
+
+export const PEOPLE = [
+    {
+        'name': 'Caitlin Hummel',
+        'src': 'caitlin.jpg',
+        'url': 'https://www.facebook.com/profile.php?id=100003004568003'
+    },
+    {
+        'name': 'Tyler Beck',
+        'src': 'tyler.jpg',
+        'url': 'https://www.facebook.com/tyl.beck'
+    },
+    {
+        'name': 'Robert Beck',
+        'src': 'robert.jpg',
+        'url': 'https://www.facebook.com/robert.beck.9638'
+    },
+    {
+        'name': 'Patricia Beck',
+        'src': 'patricia.jpg',
+        'url': 'https://www.facebook.com/patricia.beck.961'
+    },
+    {
+        'name': 'Michelle Anderson',
+        'src': 'michelle.jpg',
+        'url': 'https://www.facebook.com/michelle.k.anderson.7'
+    },
+    {
+        'name': 'James Anderson',
+        'src': 'jim.jpg',
+        'url': 'https://www.facebook.com/profile.php?id=100016348394920'
+    }
+];
