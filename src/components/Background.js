@@ -1,3 +1,5 @@
+'use strict';
+
 import '../styles/Background.sass'
 
 import * as _ from 'lodash';
@@ -8,6 +10,11 @@ import {COUNTRY_LIST} from '../constants/data';
 class Background extends Component {
     static REPEAT = 10;
 
+    /**
+     * @method _getCountries
+     * @returns {string}
+     * @private
+     */
     static _getCountries () {
         let items = [];
         for (let i = 1; i <= Background.REPEAT; i++) {

@@ -1,24 +1,11 @@
 'use strict';
 
 import {Server} from './server';
+import * as Chalk from 'chalk';
 
-(app => {
+const server = new Server();
 
-    return app
-        .run()
-        .then(() => {
-
-            console.log(`Server listening @ [::]:${app.port}`);
-
-            return true;
-
-        })
-        .catch(e => {
-
-            console.log('Unable to start server!', e);
-
-            process.exit(0);
-
-        });
-
-})(new Server());
+server
+    .run()
+    .then(() => console.log(Chalk.green(`Server listening @ [::]:${server.port}`)))
+    .catch(e => console.log(Chalk.red('Unable to start server!'), e));

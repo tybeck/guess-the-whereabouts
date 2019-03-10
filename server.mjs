@@ -19,11 +19,23 @@ export class Server {
         this.app = express();
     }
 
+    /**
+     * @method _staticRoutes
+     * @returns {Server}
+     * @private
+     */
+
     _staticRoutes () {
         this.app.use(nwb(express));
         this.app.use(express.static('public'));
         return this;
     }
+
+    /**
+     * @method _routes
+     * @returns {*}
+     * @private
+     */
 
     _routes () {
         return globby([
@@ -49,6 +61,12 @@ export class Server {
             });
     };
 
+    /**
+     * @method _env
+     * @returns {Promise<boolean | never>}
+     * @private
+     */
+
     _env () {
         return import('dotenv')
             .then(env => {
@@ -64,6 +82,12 @@ export class Server {
             });
     }
 
+    /**
+     * @method _listen
+     * @returns {*}
+     * @private
+     */
+
     _listen () {
         return new Promise((resolve, reject) => {
             this.app.listen(this.port, err => {
@@ -75,13 +99,21 @@ export class Server {
         });
     };
 
+    /**
+     * Setup our static routes, get our environment variables, setup primary
+     * routes, and then listen for incoming connections
+     * @method run
+     */
+
     run () {
         this._staticRoutes();
 
-        return Promise.mapSeries([this._env, this._routes, this._listen], promise => {
-
+        return Promise.mapSeries([
+            this._env,
+            this._routes,
+            this._listen
+        ], promise => {
             return promise.apply(this);
-
         });
     }
 

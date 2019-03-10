@@ -1,3 +1,5 @@
+'use strict';
+
 import '../styles/People.sass'
 
 import React, {Component} from 'react';
@@ -5,8 +7,13 @@ import React, {Component} from 'react';
 import {PEOPLE} from '../constants/data';
 
 class People extends Component {
+    /**
+     * @method _getPeople
+     * @returns {Array}
+     * @private
+     */
     _getPeople () {
-        let list = [];
+        const list = [];
         _.forEach(PEOPLE, person => {
             const source = `/images/profile/${person.src}`;
             list.push(

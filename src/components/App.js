@@ -1,3 +1,5 @@
+'use strict';
+
 import '../styles/App.sass'
 
 import React, {Component} from 'react';
@@ -5,6 +7,7 @@ import React, {Component} from 'react';
 import Background from './Background';
 import Countdown from './Countdown';
 import People from './People';
+import ImageBackground from './ImageBackground';
 
 class App extends Component {
   render() {
@@ -12,10 +15,10 @@ class App extends Component {
       <div className="title">
         <h1>Guess the Whereabouts</h1>
       </div>
-      <Countdown/>
+      <Countdown />
       <People />
-      <img src="/images/photo1.jpeg" />
-      <Background/>
+      <ImageBackground />
+      <Background />
     </div>
   }
 }
