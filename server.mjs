@@ -13,7 +13,6 @@ const Promise = _.get(_promise, 'default');
 const globby = _.get(_globby, 'default');
 
 export class Server {
-
     constructor () {
         this.port = 80;
         this.app = express();
@@ -24,10 +23,10 @@ export class Server {
      * @returns {Server}
      * @private
      */
-
     _staticRoutes () {
         this.app.use(nwb(express));
         this.app.use(express.static('public'));
+        this.app.use(express.static('images'));
         return this;
     }
 
@@ -36,7 +35,6 @@ export class Server {
      * @returns {*}
      * @private
      */
-
     _routes () {
         return globby([
             `${process.cwd()}/routes/**/*.routes.mjs`,
@@ -66,18 +64,13 @@ export class Server {
      * @returns {Promise<boolean | never>}
      * @private
      */
-
     _env () {
         return import('dotenv')
             .then(env => {
                 const Env = _.get(env, 'default');
-
                 if (Env) {
-
                     Env.config();
-
                 }
-
                 return true;
             });
     }
@@ -87,7 +80,6 @@ export class Server {
      * @returns {*}
      * @private
      */
-
     _listen () {
         return new Promise((resolve, reject) => {
             this.app.listen(this.port, err => {
@@ -104,10 +96,8 @@ export class Server {
      * routes, and then listen for incoming connections
      * @method run
      */
-
     run () {
         this._staticRoutes();
-
         return Promise.mapSeries([
             this._env,
             this._routes,
@@ -116,5 +106,4 @@ export class Server {
             return promise.apply(this);
         });
     }
-
 }
