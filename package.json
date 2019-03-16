@@ -1,6 +1,6 @@
 {
   "name": "guess-the-whereabouts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "description": "Describe guess-the-whereabouts here",
   "private": true,
