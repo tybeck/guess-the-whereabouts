@@ -18,24 +18,33 @@ class Loading extends Component {
             .then(() => this.props.context.setState({isLoaded: true}));
     }
 
+    /**
+     * @method _loadFonts
+     * @returns {Promise<T | never>}
+     * @private
+     */
     _loadFonts() {
         return document
             .fonts
             .ready
             .then(function () {
                 return new Promise(resolve => {
-                    return setTimeout(() => resolve(true), 1000000);
+                    return setTimeout(() => resolve(true), 1500);
                 });
             });
     }
 
+    /**
+     * @method _loadImages
+     * @private
+     */
     _loadImages() {
         const images = ImageBackground.IMAGES;
         bluebird.map(images, image => {
             return new Promise(resolve => {
-                const loader = this._createImgInstance();
+                const loader = Loading.createImgInstance();
                 loader.onload = () => {
-                    this._destroyImgInstance(loader);
+                    Loading.destroyImgInstance(loader);
                     resolve(true);
                 };
                 loader.src = image;
@@ -44,11 +53,20 @@ class Loading extends Component {
             .then(() => true);
     }
 
-    _destroyImgInstance(src) {
+    /**
+     * @method destroyImgInstance
+     * @param src
+     * @private
+     */
+    static destroyImgInstance(src) {
         document.body.removeChild(src);
     }
 
-    _createImgInstance() {
+    /**
+     * @method createImgInstance
+     * @returns {HTMLElement}
+     */
+    static createImgInstance() {
         const imgLoader = document.createElement('img');
         if (imgLoader) {
             imgLoader.style.display = 'none';
