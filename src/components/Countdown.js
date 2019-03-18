@@ -6,7 +6,8 @@ import * as moment from 'moment';
 import React, {Component} from 'react';
 
 class Countdown extends Component {
-    static END_DATE = '2019-07-08';
+    static END_DATE = '2019-07-05';
+    // static END_DATE = '2019-03-29';
 
     constructor(props) {
         super(props);
@@ -21,7 +22,7 @@ class Countdown extends Component {
      * @returns {number}
      */
     static getDays () {
-        return Math.ceil(moment.duration(moment(Countdown.END_DATE).diff(moment())).asDays()) - 30;
+        return Math.ceil(moment.duration(moment(Countdown.END_DATE).diff(moment())).asDays());
     }
 
     /**

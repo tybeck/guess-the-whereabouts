@@ -6,14 +6,18 @@ import React, {Component} from 'react';
 
 import Loading from './Loading';
 import AppRenderer from './AppRenderer';
+import Countdown from './Countdown';
 
 import Context from '../context';
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoaded: false
-    }
+      isLoaded: false,
+      currentDay: Countdown.getDays()
+    };
+    console.log(Countdown.getDays());
   }
 
   render() {

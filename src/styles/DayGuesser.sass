@@ -1,0 +1,82 @@
+@import ~bootstrap/scss/bootstrap
+@import ./variables
+
+@mixin bubblize ()
+  border-radius: 10px
+  background: rgba(255, 255, 255, 0.75)
+  display: inline-block
+  padding: 5px 10px
+
+.DayGuesser
+
+  > p
+
+    @include bubblize
+    display: block
+    padding-top: 10px
+    padding-bottom: 10px
+    margin-top: 10px
+    line-height: 20px
+    background: rgba(0, 0, 0, 0.75)
+    color: white
+    font-size: 11px
+    font-style: italic
+
+    &.locations-days-left
+
+      position: absolute
+      z-index: 2
+      bottom: 0
+      left: 0
+      margin-left: 20px
+
+  div.day-bubble
+
+    margin-top: 25px
+    margin-left: 25px
+    margin-right: 25px
+    display: inline-block
+    position: relative
+    z-index: 1
+
+    h1.location-name
+
+      @include bubblize
+      font-family: $secondary_header_font
+      font-size: 40px
+      margin: 0
+
+    p
+
+      @include bubblize
+      display: block
+      padding-top: 10px
+      padding-bottom: 10px
+      margin-top: 10px
+      font-size: 14px
+      line-height: 20px
+
+  img
+
+    position: fixed
+    z-index: 0
+    opacity: 1
+    left: 0
+    top: 0
+    height: 100%
+    width: 100%
+
+    &.paris--france
+
+      width: 175%
+      left: -37.5%
+
+      @include media-breakpoint-up(md)
+
+        width: 110%
+        left: -5%
+
+      @include media-breakpoint-up(lg)
+
+        width: 100%
+        left: 0
