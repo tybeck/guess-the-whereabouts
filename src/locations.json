@@ -1,6 +1,76 @@
 [{
+  "name": "Athens, Greece",
+  "image": "/images/locations/athens-greece.jpg",
+  "desc": "Ancient sun-bleached ruins pierce blue skies as the Aegean laps at the endless coastline. And Greek culture is alive with passionate music, inspired cuisine and thrill-seeking activities.",
+  "day": 1
+}, {
+  "name": "Honolulu, Hawaii",
+  "image": "/images/locations/honolulu-hawaii.jpg",
+  "desc": "If Oahu is the heart of Hawaii, then Honolulu is its racing pulse. In this cosmopolitan capital city, you’ll find everything from historic landmarks to fine dining to world-class shopping.",
+  "day": 2
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 3
+}, {
+  "name": "Cancún, Mexico",
+  "image": "/images/locations/cancun-mexico.jpg",
+  "desc": "Located on the Caribbean coast of southeastern Mexico, Cancun is one of the world's most beautiful beach destinations. Sunbathe on the white sandy beaches, scuba dive, then head into the city for dining, shopping, and nightlife.",
+  "day": 4
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 5
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 6
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 7
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 8
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 9
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 10
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 11
+}, {
   "name": "Paris, France",
   "image": "/images/locations/paris-france.jpg",
   "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
   "day": 12
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 13
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 14
+}, {
+  "name": "Paris, France",
+  "image": "/images/locations/paris-france.jpg",
+  "desc": "Paris, capital of France, is one of the most important and influential cities in the world. In terms of tourism, Paris is the second most visited city in Europe after London.",
+  "day": 15
 }]

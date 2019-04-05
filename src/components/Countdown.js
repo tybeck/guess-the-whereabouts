@@ -6,8 +6,8 @@ import * as moment from 'moment';
 import React, {Component} from 'react';
 
 class Countdown extends Component {
-    static END_DATE = '2019-07-05';
-    // static END_DATE = '2019-03-29';
+    // static END_DATE = '2019-07-05';
+    static END_DATE = '2019-04-9';
 
     constructor(props) {
         super(props);

@@ -66,17 +66,25 @@
     height: 100%
     width: 100%
 
-    &.paris--france
+    &.athens--greece,
+    &.honolulu--hawaii,
+    &.paris--france,
+    &.cancún--mexico
 
-      width: 175%
-      left: -37.5%
+      width: 200%
+      left: -51%
+
+      @include media-breakpoint-up(xs)
+
+        width: 175%
+        left: -39%
+
+      @include media-breakpoint-up(sm)
+
+        width: 150%
+        left: -25%
 
       @include media-breakpoint-up(md)
 
         width: 110%
         left: -5%
-
-      @include media-breakpoint-up(lg)
-
-        width: 100%
-        left: 0
