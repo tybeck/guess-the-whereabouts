@@ -15,10 +15,12 @@ class App extends Component {
     super(props);
     this.state = {
       isLoaded: false,
-      currentDay: Countdown.getDays()
+      currentDay: Countdown.getDays(),
+      setDay: this.setDay
     };
-    console.log(Countdown.getDays());
   }
+
+  setDay = (currentDay) => this.setState({currentDay});
 
   render() {
     return <div className="App">

@@ -5,11 +5,15 @@ import '../../styles/DayGuesser.sass'
 import React, {Component} from 'react';
 import {get, find} from 'lodash';
 
+import NavigationButtons from '../NavigationButtons';
+
 class DayGuesser extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            location: null
+            location: null,
+            locations: null,
+            initialDay: null
         }
     }
 
@@ -21,10 +25,20 @@ class DayGuesser extends Component {
                 if (locations) {
                     const location = find(locations, { day });
                     if (location) {
-                        this.setState({location});
+                        this.setState({location, locations, initialDay: day});
                     }
                 }
             });
+    }
+
+    componentDidUpdate () {
+        if (this.state.location.day !== this.props.context.currentDay) {
+            const day = this.props.context.currentDay;
+            const location = find(this.state.locations, { day });
+            if (location) {
+                this.setState({location});
+            }
+        }
     }
 
     render() {
@@ -38,7 +52,11 @@ class DayGuesser extends Component {
                 <h1 className="location-name">{this.state.location.name}</h1>
                 <p className="location-desc">{this.state.location.desc}</p>
             </div>
-            <p className="locations-days-left">{day} days left</p>
+            <NavigationButtons context={this.props.context} />
+            <p className="locations-days-left">
+                {day === this.state.initialDay && <span>{day} days left</span>}
+                {day !== this.state.initialDay && <span>Viewing day {day} of 15</span>}
+            </p>
             <img src={this.state.location.image} className={locationName} />
         </div> : null;
     }

@@ -12,6 +12,7 @@ import Context from '../context';
 class AppRenderer extends Component {
     constructor(props) {
         super(props);
+        this.DAY_NUM_START = 15;
     }
 
     render() {
@@ -20,8 +21,8 @@ class AppRenderer extends Component {
                 {context => <div className="Content">
                     {context.isLoaded && (
                         <div className="ContentArea">
-                            {context.currentDay > 15 && <Primary />}
-                            {context.currentDay <= 15 && <DayGuesser context={context} />}
+                            {context.currentDay > this.DAY_NUM_START && <Primary />}
+                            {context.currentDay <= this.DAY_NUM_START && <DayGuesser context={context} />}
                         </div>
                     )}
                 </div>}
