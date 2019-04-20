@@ -3,23 +3,28 @@
 import '../styles/Loading.sass'
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import * as bluebird from 'bluebird';
 
 import ImageBackground from './ImageBackground';
-import Context from '../context';
 
 class Loading extends Component {
     constructor(props) {
         super(props);
     }
+
     componentDidMount() {
         return bluebird
-            .all([this._loadFonts(), this._loadImages()])
-            .then(() => this.props.context.setState({isLoaded: true}));
+            .all([
+                this._loadFonts(),
+                this._loadImages()
+            ])
+            .then(() => this.props.isAppLoading(true));
     }
 
     /**
      * @method _loadFonts
+     * Load all fonts
      * @returns {Promise<T | never>}
      * @private
      */
@@ -36,6 +41,7 @@ class Loading extends Component {
 
     /**
      * @method _loadImages
+     * Load all images
      * @private
      */
     _loadImages() {
@@ -77,21 +83,21 @@ class Loading extends Component {
 
     render() {
         return <div className="Loading">
-            <Context.Consumer>
-                {context => <div className="LoadingArea">
-                    {!context.isLoaded && (
-                        <div className="LoadingAreaContent">
-                            <div className="project-name">Guess the whereabouts</div>
-                            <div className="loading-text">Loading ...</div>
-                            <div className="progress-bar" />
-                            <div className="progress-text">
-                            </div>
-                        </div>
-                    )}
-                </div>}
-            </Context.Consumer>
-        </div>
+            <div className="LoadingArea">
+                <div className="LoadingAreaContent">
+                    <div className="project-name">Guess the whereabouts</div>
+                    <div className="loading-text">Loading ...</div>
+                    <div className="progress-bar" />
+                    <div className="progress-text">
+                    </div>
+                </div>
+            </div>
+        </div>;
     }
 }
+
+Loading.propTypes = {
+    isAppLoading: PropTypes.func.isRequired
+};
 
 export default Loading;

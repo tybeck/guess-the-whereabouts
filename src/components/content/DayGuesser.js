@@ -3,9 +3,11 @@
 import '../../styles/DayGuesser.sass'
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {get, find} from 'lodash';
 
-import NavigationButtons from '../NavigationButtons';
+import NavigationButtons from '../containers/NavigationButtonsContainer';
+import Wordsearch from '../Wordsearch';
 
 class DayGuesser extends Component {
     constructor(props) {
@@ -18,7 +20,7 @@ class DayGuesser extends Component {
     }
 
     componentDidMount() {
-        const day = this.props.context.currentDay;
+        const day = this.props.currentDay;
         import(`../../locations`)
             .then(data => {
                 const locations = get(data, 'default');
@@ -32,8 +34,8 @@ class DayGuesser extends Component {
     }
 
     componentDidUpdate () {
-        if (this.state.location.day !== this.props.context.currentDay) {
-            const day = this.props.context.currentDay;
+        if (this.state.location.day !== this.props.currentDay) {
+            const day = this.props.currentDay;
             const location = find(this.state.locations, { day });
             if (location) {
                 this.setState({location});
@@ -42,7 +44,7 @@ class DayGuesser extends Component {
     }
 
     render() {
-        const day = get(this.props, 'context.currentDay') || 0;
+        const day = get(this.props, 'currentDay') || 0;
         const locationName = (get(this.state, 'location.name') || '')
             .replace(' ', '-')
             .replace(',', '-')
@@ -52,14 +54,19 @@ class DayGuesser extends Component {
                 <h1 className="location-name">{this.state.location.name}</h1>
                 <p className="location-desc">{this.state.location.desc}</p>
             </div>
-            <NavigationButtons context={this.props.context} />
+            <NavigationButtons />
             <p className="locations-days-left">
                 {day === this.state.initialDay && <span>{day} days left</span>}
                 {day !== this.state.initialDay && <span>Viewing day {day} of 15</span>}
             </p>
+            <Wordsearch />
             <img src={this.state.location.image} className={locationName} />
         </div> : null;
     }
 }
+
+DayGuesser.propTypes = {
+    currentDay: PropTypes.number
+};
 
 export default DayGuesser;

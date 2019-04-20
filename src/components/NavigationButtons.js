@@ -3,6 +3,7 @@
 import '../styles/NavigationButtons.sass';
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
@@ -12,20 +13,20 @@ class NavigationButtons extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            day: this.props.context.currentDay,
-            initialDay: this.props.context.currentDay
+            day: this.props.currentDay,
+            initialDay: this.props.currentDay
         };
         this.DAY_NUM_START = 15;
     }
 
     gotoNextLatestDay () {
         this.setState({ day: Math.min(Math.max(--this.state.day, 1), this.DAY_NUM_START) });
-        this.props.context.setDay(this.state.day);
+        this.props.changeDay(this.state.day);
     }
 
     gotoNextOldDay () {
         this.setState({ day: Math.min(Math.max(++this.state.day, 1), this.DAY_NUM_START) });
-        this.props.context.setDay(this.state.day);
+        this.props.changeDay(this.state.day);
     }
 
     render() {
@@ -35,5 +36,9 @@ class NavigationButtons extends Component {
         </div>;
     }
 }
+
+NavigationButtons.propTypes = {
+    changeDay: PropTypes.func.isRequired
+};
 
 export default NavigationButtons;

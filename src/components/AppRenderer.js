@@ -3,11 +3,10 @@
 import '../styles/App.sass'
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 import Primary from './content/Primary';
-import DayGuesser from './content/DayGuesser';
-
-import Context from '../context';
+import DayGuesser from './containers/DayGuesserContainer';
 
 class AppRenderer extends Component {
     constructor(props) {
@@ -17,18 +16,21 @@ class AppRenderer extends Component {
 
     render() {
         return <div className="AppRenderer">
-            <Context.Consumer>
-                {context => <div className="Content">
-                    {context.isLoaded && (
-                        <div className="ContentArea">
-                            {context.currentDay > this.DAY_NUM_START && <Primary />}
-                            {context.currentDay <= this.DAY_NUM_START && <DayGuesser context={context} />}
-                        </div>
-                    )}
-                </div>}
-            </Context.Consumer>
+            <div className="Content">
+                {this.props.load && (
+                    <div className="ContentArea">k
+                        {this.props.currentDay > this.DAY_NUM_START && <Primary />}
+                        {this.props.currentDay <= this.DAY_NUM_START && <DayGuesser />}
+                    </div>
+                )}
+            </div>
         </div>
     }
 }
+
+AppRenderer.propTypes = {
+    load: PropTypes.bool,
+    currentDay: PropTypes.number
+};
 
 export default AppRenderer;

@@ -1,6 +1,6 @@
 'use strict';
 
-import '../styles/People.sass'
+import '../styles/People.sass';
 
 import React, {Component} from 'react';
 
