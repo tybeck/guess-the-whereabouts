@@ -4,5 +4,6 @@ import Countdown from '../components/Countdown';
 
 export const preloadedState = {
     currentDay: Countdown.getDays(),
-    load: false
+    load: false,
+    location: null
 };

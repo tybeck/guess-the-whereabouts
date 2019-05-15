@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 
 class Countdown extends Component {
     static END_DATE = '2019-07-07';
-    // static END_DATE = '2019-04-25';
+    // static END_DATE = '2019-05-09';
 
     constructor(props) {
         super(props);

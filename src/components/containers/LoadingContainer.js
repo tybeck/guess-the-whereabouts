@@ -13,6 +13,10 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => {
+    return {
+        load: state.load
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Loading);

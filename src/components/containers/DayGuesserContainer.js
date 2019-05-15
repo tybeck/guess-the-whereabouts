@@ -5,8 +5,12 @@ import React from 'react';
 
 import DayGuesser from '../content/DayGuesser';
 
-const mapDispatchToProps = () => {
-    return {};
+import {changeLocation} from '../../constants/actionTypes';
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeLocation: location => {dispatch(changeLocation(location))}
+    };
 };
 
 const mapStateToProps = state => {

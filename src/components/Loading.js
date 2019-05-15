@@ -5,6 +5,7 @@ import '../styles/Loading.sass'
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import * as bluebird from 'bluebird';
+import {get} from 'lodash';
 
 import ImageBackground from './ImageBackground';
 
@@ -15,11 +16,27 @@ class Loading extends Component {
 
     componentDidMount() {
         return bluebird
-            .all([
-                this._loadFonts(),
-                this._loadImages()
-            ])
+            .all([this._loadFonts(), this._importLocationImages(), this._loadImages()])
             .then(() => this.props.isAppLoading(true));
+    }
+
+    _importLocationImages() {
+        return import(`../locations`)
+            .then(data => {
+                const locations = get(data, 'default');
+                if (locations) {
+                    return bluebird.map(locations, location => {
+                        return new Promise(resolve => {
+                            const loader = Loading.createImgInstance();
+                            loader.onload = () => {
+                                Loading.destroyImgInstance(loader);
+                                resolve(true);
+                            };
+                            loader.src = location.image;
+                        });
+                    })
+                }
+            });
     }
 
     /**
@@ -64,9 +81,7 @@ class Loading extends Component {
      * @param src
      * @private
      */
-    static destroyImgInstance(src) {
-        document.body.removeChild(src);
-    }
+    static destroyImgInstance = src => document.body.removeChild(src);
 
     /**
      * @method createImgInstance
@@ -83,7 +98,7 @@ class Loading extends Component {
 
     render() {
         return <div className="Loading">
-            <div className="LoadingArea">
+            {!this.props.load && <div className="LoadingArea">
                 <div className="LoadingAreaContent">
                     <div className="project-name">Guess the whereabouts</div>
                     <div className="loading-text">Loading ...</div>
@@ -91,7 +106,7 @@ class Loading extends Component {
                     <div className="progress-text">
                     </div>
                 </div>
-            </div>
+            </div>}
         </div>;
     }
 }

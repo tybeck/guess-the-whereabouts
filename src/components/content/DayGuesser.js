@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import {get, find} from 'lodash';
 
 import NavigationButtons from '../containers/NavigationButtonsContainer';
-import Wordsearch from '../Wordsearch';
+import Wordsearch from '../containers/WordsearchContainer';
 
 class DayGuesser extends Component {
     constructor(props) {
@@ -28,6 +28,7 @@ class DayGuesser extends Component {
                     const location = find(locations, { day });
                     if (location) {
                         this.setState({location, locations, initialDay: day});
+                        this.props.changeLocation(location);
                     }
                 }
             });
@@ -39,6 +40,7 @@ class DayGuesser extends Component {
             const location = find(this.state.locations, { day });
             if (location) {
                 this.setState({location});
+                this.props.changeLocation(location);
             }
         }
     }
@@ -56,7 +58,7 @@ class DayGuesser extends Component {
             </div>
             <NavigationButtons />
             <p className="locations-days-left">
-                {day === this.state.initialDay && <span>{day} days left</span>}
+                {day === this.state.initialDay && <span>{day} day{day !== 1 ? 's' : ''} left</span>}
                 {day !== this.state.initialDay && <span>Viewing day {day} of 15</span>}
             </p>
             <Wordsearch />
